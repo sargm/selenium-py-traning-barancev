@@ -15,7 +15,7 @@ class Untitled(unittest.TestCase):
         self.verificationErrors = []
         self.accept_next_alert = True
 
-    def test_untitled(self):
+    def test_delete(self):
         driver = self.driver
         driver.get(self.base_url + "/php4dvd/")
         driver.find_element_by_id("username").clear()

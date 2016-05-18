@@ -18,7 +18,7 @@ class Untitled(unittest.TestCase):
 
     #def number = random.randrange(0, 101, 2)
 
-    def test_untitled(self):
+    def test_add(self):
         driver = self.driver
         driver.get(self.base_url + "/php4dvd/")
         driver.find_element_by_id("username").clear()
