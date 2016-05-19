@@ -14,6 +14,11 @@ class InternalPage(Page):
         return self.driver.find_element_by_css_selector("nav a[href $= '?go=users']")
 
     @property
+    def user_profile_link(self):
+        return self.driver.find_element_by_css_selector("nav a[href $= '?go=users']") #!!!!!!
+
+
+    @property
     def is_this_page(self):
         return self.is_element_visible((By.CSS_SELECTOR, "nav"))
 

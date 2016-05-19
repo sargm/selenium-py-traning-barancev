@@ -8,4 +8,5 @@ def test_add_user(app):
     app.logout()
     app.login(new_user)
     assert app.is_logged_in()
+    assert app.is_logged_in_as(new_user)
     app.logout()
