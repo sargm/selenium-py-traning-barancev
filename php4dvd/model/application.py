@@ -1,24 +1,22 @@
 from selenium.common.exceptions import *
 from selenium import webdriver
-from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-#from pages.page import Page
-from pages.internal_page import InternalPage
-from pages.login_page import LoginPage
+from php4dvd.pages.page import Page
+from php4dvd.pages.login_page import  LoginPage
+from php4dvd.pages.internal_page import  InternalPage
 
 class Application(object):
 
     def __init__(self, driver, base_url):
-        self.driver = driver
         driver.get(base_url)
-        #self.base_url = base_url
+        self.wait = WebDriverWait(driver, 10)
         self.login_page = LoginPage(driver, base_url)
         self.internal_page = InternalPage(driver, base_url)
-        self.wait = WebDriverWait(driver,10)
 
-    def go_to_home_page(self):
-        self.driver.get(self.base_url)
+
+    #def go_to_home_page(self):
+    #    self.driver.get(self.base_url)
 
     def login(self, user):
         lp = self.login_page
@@ -31,7 +29,7 @@ class Application(object):
 
     def logout(self):
         self.internal_page.logout_button.click()
-        self.driver.switch_to_alert().accept()
+        self.wait.until(EC.alert_is_present()).accept()
 
 
     def is_logged_in(self):
