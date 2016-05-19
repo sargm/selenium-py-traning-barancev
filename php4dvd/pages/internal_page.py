@@ -10,17 +10,10 @@ class InternalPage(Page):
         return self.driver.find_element_by_text_link("Log out")
 
     @property
+    def user_management_link(self):
+        return self.driver.find_element_by_css_selector("nav a[href $= '?go=users']")
+
+    @property
     def is_this_page(self):
-        return self.is_element_visible((By.ID, "loginform"))
+        return self.is_element_visible((By.CSS_SELECTOR, "nav"))
 
-'''
-    @property
-    def username_field(self):
-        return self.driver.find_element_by_id("username")
-
-    @property
-    def password_field(self):
-        return self.driver.find_element_by_id("password")
-
-
-        '''

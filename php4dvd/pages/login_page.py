@@ -1,6 +1,6 @@
 from php4dvd.pages import Page
 from selenium.webdriver.common.by import By
-from selenium import webdriver
+
 
 
 class LoginPage(Page):
@@ -19,4 +19,4 @@ class LoginPage(Page):
 
     @property
     def is_this_page(self):
-        return self.is_element_visible((By.CSS_SELECTOR,"nav"))
+        return self.is_element_visible((By.ID,"loginform"))

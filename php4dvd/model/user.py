@@ -16,6 +16,7 @@ class User(object):
         random_nmb = random.randrange(0,10000)
         username_rnd = "admin" + str(random_nmb)
         password_rnd = "admin" + str(random_nmb)
-        return cls(username_rnd, password_rnd)
+        email_rnd = "admin" + str(random_nmb)+ "@test.test"
+        return cls(username_rnd, password_rnd, email_rnd)
 
 
