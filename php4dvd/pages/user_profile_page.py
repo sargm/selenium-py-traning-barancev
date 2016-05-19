@@ -1,10 +1,10 @@
-from php4dvd.pages import Page
+from php4dvd.pages.internal_page import InternalPage
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.by import Select
 
 
 
-class UserMProfilePage(Page):
+class UserMProfilePage(InternalPage):
 
     @property
     def username_field(self):
