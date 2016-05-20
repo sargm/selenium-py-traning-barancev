@@ -1,6 +1,6 @@
 from php4dvd.pages.internal_page import InternalPage
 from selenium.webdriver.common.by import By
-from selenium.webdriver.common.by import Select
+from selenium.webdriver.support.ui import Select
 
 
 

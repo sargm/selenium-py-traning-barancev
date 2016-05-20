@@ -64,12 +64,12 @@ class Application(object):
         ump.user_form.submit_button.click()
 
     def ensure_logout(self):
-        element = self.wait.until(EC.presence_of_element_located(By.CSS_SELECTOR, "nav, #loginform"))
+        element = self.wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, "nav, #loginform")))
         if element.tag_name == "nav":
             self.logout()
 
     def ensure_login_as(self,user):
-        element = self.wait.until(EC.presence_of_element_located(By.CSS_SELECTOR, "nav, #loginform"))
+        element = self.wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, "nav, #loginform")))
         if element.tag_name == "nav":
             #we are on internal page
             if self.is_logged_in_as(user):

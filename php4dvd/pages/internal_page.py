@@ -1,4 +1,4 @@
-from php4dvd.pages import Page
+from pages.page import Page
 from selenium.webdriver.common.by import By
 from selenium import webdriver
 

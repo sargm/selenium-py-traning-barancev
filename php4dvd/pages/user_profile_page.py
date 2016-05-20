@@ -1,6 +1,6 @@
 from pages.internal_page import InternalPage
-from blocks.user_form import UserForm
-from selenium.webdriver.common.by import Select
+from pages.blocks.user_form import UserForm
+from selenium.webdriver.support.ui import Select
 
 
 

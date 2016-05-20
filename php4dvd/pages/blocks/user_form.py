@@ -1,6 +1,5 @@
 from pages.page import Page
-from selenium.webdriver.common.by import Select
-
+from selenium.webdriver.support.ui import Select
 
 
 class UserForm(Page):
