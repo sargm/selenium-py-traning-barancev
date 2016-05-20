@@ -8,10 +8,10 @@ from selenium.webdriver.support.ui import Select
 class ViewMoviePage(InternalPage):
     @property
     def movietitle_field(self):
-        return self.driver.find_element_by_css_selector("h2")
+        return self.driver.find_element_by_css_selector(".maininfo_full > h2:nth-child(1)")
 
     @property
-    def movieyear_field(self):
+    def movieformat_field(self):
         return self.driver.find_element_by_css_selector("div.duration")
 
     @property

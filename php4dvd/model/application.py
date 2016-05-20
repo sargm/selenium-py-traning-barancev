@@ -11,6 +11,7 @@ from php4dvd.pages.user_profile_page import UserProfilePage
 from php4dvd.pages.add_movie_page import AddMoviePage
 from php4dvd.pages.view_movie_page import ViewMoviePage
 from model.user import  User
+from model.movie import  Movie
 
 class Application(object):
 
@@ -86,10 +87,16 @@ class Application(object):
         self.internal_page.add_movie_link.click()
         amp = self.add_movie_page
         amp.is_this_page
-        amp.movietitle_field.send_keys(movie.title)
-        amp.movieyear_field.send_keys(movie.year)
-        #amp.movieformat_field.send_keys(movie.format)
-        amp.submit_button.click()
+        amp.movie_form.movietitle_field.send_keys(movie.title)
+        amp.movie_form.movieyear_field.send_keys(movie.year)
+        #amp.movie_form.movieformat_field.send_keys(movie.format)
+        amp.movie_form.submit_button.click()
 
-    #def is_added_movie(self,movie):
+    def is_added_movie(self, movie):
+        return self.get_added_movie().title == movie.title + " (" + movie.year + ")"
+
+    def get_added_movie(self):
+        vmp = self.view_movie_page
+        vmp.is_this_page
+        return Movie(title=vmp.movietitle_field.text)
 
