@@ -11,11 +11,11 @@ class LoginPage(Page):
 
     @property
     def password_field(self):
-        return self.driver.find_element_by_id("password")
+        return self.driver.find_element_by_name("password")
 
     @property
     def submit_button(self):
-        return self.driver.find_element_by_id("submit")
+        return self.driver.find_element_by_name("submit")
 
     @property
     def is_this_page(self):

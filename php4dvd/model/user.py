@@ -17,6 +17,6 @@ class User(object):
         username_rnd = "admin" + str(random_nmb)
         password_rnd = "admin" + str(random_nmb)
         email_rnd = "admin" + str(random_nmb)+ "@test.test"
-        return cls(username_rnd, password_rnd, email_rnd)
+        return cls(username=username_rnd, password=password_rnd, email=email_rnd)
 
 

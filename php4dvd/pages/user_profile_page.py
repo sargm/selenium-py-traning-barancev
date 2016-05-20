@@ -3,7 +3,6 @@ from pages.blocks.user_form import UserForm
 from selenium.webdriver.support.ui import Select
 
 
-
 class UserProfilePage(InternalPage):
 
     def __init__(self, driver, base_url):
