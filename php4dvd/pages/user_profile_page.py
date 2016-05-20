@@ -1,21 +1,12 @@
-from php4dvd.pages.internal_page import InternalPage
-from selenium.webdriver.common.by import By
+from pages.internal_page import InternalPage
+from blocks.user_form import UserForm
 from selenium.webdriver.common.by import Select
 
 
 
-class UserMProfilePage(InternalPage):
+class UserProfilePage(InternalPage):
 
-    @property
-    def username_field(self):
-        return self.driver.find_element_by_name("username")
-
-    @property
-    def email_field(self):
-        return self.driver.find_element_by_name("email")
-
-    @property
-    def is_this_page(self):
-        return self.is_element_visible((By.ID, "loginform"))
-
+    def __init__(self, driver, base_url):
+        super(UserProfilePage, self).__init__(driver,base_url)
+        self.user_form = UserForm(self.driver, self.base_url)
 

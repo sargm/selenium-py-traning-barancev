@@ -7,6 +7,7 @@ from php4dvd.pages.login_page import  LoginPage
 from php4dvd.pages.internal_page import  InternalPage
 from php4dvd.pages.user_management_page import  UserManagementPage
 from php4dvd.pages.user_profile_page import  UserProfilePage
+from model.user import  User
 
 class Application(object):
 
@@ -54,10 +55,10 @@ class Application(object):
         self.internal_page.user_management_link.click()
         ump = self.user_management_page
         ump.is_this_page
-        ump.username_field.send_keys(user.username)
-        ump.email_field.send_keys(user.email)
-        ump.password_field.send_keys(user.password)
-        ump.password1_field.send_keys(user.password)
-        #ump.role_select.select_by_visible_text(user.role)
-        ump.submit_button.click()
+        ump.user_form.username_field.send_keys(user.username)
+        ump.user_form.email_field.send_keys(user.email)
+        ump.user_form.password_field.send_keys(user.password)
+        ump.user_form.password1_field.send_keys(user.password)
+        #ump.user_form.role_select.select_by_visible_text(user.role)
+        ump.user_form.submit_button.click()
 
