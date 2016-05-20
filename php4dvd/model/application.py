@@ -100,3 +100,21 @@ class Application(object):
         vmp.is_this_page
         return Movie(title=vmp.movietitle_field.text)
 
+    def delete_movie(self, movie):
+        vmp = self.view_movie_page
+        vmp.is_this_page
+        vmp.movie_delete_link.click()
+        try:
+            element = vmp.wait.until(EC.alert_is_present())
+            alert = vmp.driver.switch_to_alert()
+            alert.accept()
+            #alert_text = alert.text
+            #print("text", alert_text)
+            print("alert accepted")
+            return True
+        except TimeoutException:
+            print("no alert")
+            return False
+
+        
+
