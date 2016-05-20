@@ -2,6 +2,7 @@ from selenium.common.exceptions import *
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
 from php4dvd.pages.page import Page
 from php4dvd.pages.login_page import  LoginPage
 from php4dvd.pages.internal_page import  InternalPage
@@ -62,3 +63,17 @@ class Application(object):
         #ump.user_form.role_select.select_by_visible_text(user.role)
         ump.user_form.submit_button.click()
 
+    def ensure_logout(self):
+        element = self.wait.until(EC.presence_of_element_located(By.CSS_SELECTOR, "nav, #loginform"))
+        if element.tag_name == "nav":
+            self.logout()
+
+    def ensure_login_as(self,user):
+        element = self.wait.until(EC.presence_of_element_located(By.CSS_SELECTOR, "nav, #loginform"))
+        if element.tag_name == "nav":
+            #we are on internal page
+            if self.is_logged_in_as(user):
+                return
+            else:
+                self.logout()
+        self.login(user)
